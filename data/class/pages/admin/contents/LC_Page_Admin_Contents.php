@@ -102,7 +102,6 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
                     // POST値の引き継ぎ
 
                     $arrParam = $objFormParam->getHashArray();
-                    $this->p($arrParam);
                     // 登録実行
                     $res_news_id = $this->doRegist($news_id, $arrParam, $objNews);
                     if ($res_news_id !== FALSE) {
@@ -224,9 +223,11 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
         $sqlval['creator_id'] = $_SESSION['member_id'];
         $sqlval['link_method'] = $this->checkLinkMethod($sqlval['link_method']);
         $sqlval['news_date'] = $this->getRegistDate($sqlval);
+        $sqlval['end_date'] = $this->getRegistLimitDate($sqlval);
 
 
-        unset($sqlval['year'], $sqlval['month'], $sqlval['day']);
+
+        unset($sqlval['year'], $sqlval['month'], $sqlval['day'],$sqlval['year1'], $sqlval['month1'], $sqlval['day1']);
 
         return $objNews->saveNews($sqlval);
     }
@@ -245,50 +246,17 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    /**
+    /*
      * データの有効期限日を返す。
      * @param  Array  $arrPost POSTのグローバル変数
      * @return string 登録日を示す文字列
-
+    */
     public function getRegistLimitDate($arrPost)
     {
-        $registLimitDate = $arrPost['limitYear'] . '/' . $arrPost['limitMonth'] . '/' . $arrPost['limitDay'];
+        $registLimitDate = $arrPost['year1'] . '/' . $arrPost['month1'] . '/' . $arrPost['day1'];
 
         return $registLimitDate;
     }
-**/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
