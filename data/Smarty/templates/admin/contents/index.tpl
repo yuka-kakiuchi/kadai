@@ -165,7 +165,7 @@
                     <a href="?" onclick="eccube.fnFormModeSubmit('move','down','news_id','<!--{$arrNews[data].news_id|h}-->'); return false;">下へ</a>
                     <!--{/if}-->
                 </td>
-                <td><!--{$arrNews[data].cast_news_date|date_format:"%Y/%m/%d"}--></td>
+                <td><!--{$arrNews[data].cast_end_date|date_format:"%Y/%m/%d"}--></td>
             </tr>
             <!--{sectionelse}-->
             <tr class="center">

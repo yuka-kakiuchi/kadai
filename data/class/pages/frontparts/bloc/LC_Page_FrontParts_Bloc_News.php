@@ -148,6 +148,7 @@ class LC_Page_FrontParts_Bloc_News extends LC_Page_FrontParts_Bloc_Ex
      */
     public function lfGetNewsForJson($arrData, SC_Helper_News_Ex $objNews)
     {
+
         $dispNumber = $arrData['disp_number'];
         $pageNo = $arrData['pageno'];
         $arrNewsList = $this->lfGetNews($dispNumber, $pageNo, $objNews);
@@ -156,9 +157,10 @@ class LC_Page_FrontParts_Bloc_News extends LC_Page_FrontParts_Bloc_Ex
         $newsCount = $objNews->getCount();
         $arrNewsList['news_page_count'] = ceil($newsCount / 3);
 
-        $json =  SC_Utils_Ex::jsonEncode($arrNewsList);    //JSON形式
+        $json = SC_Utils_Ex::jsonEncode($arrNewsList);    //JSON形式
 
         return $json;
+
     }
 
     /**
@@ -168,12 +170,15 @@ class LC_Page_FrontParts_Bloc_News extends LC_Page_FrontParts_Bloc_Ex
      * @param  array  $arrData フォーム入力値
      * @return String $json 新着情報1件分のJSONを返す
      */
+
     public function lfGetNewsDetailForJson($arrData)
     {
         $arrNewsList = SC_Helper_News_Ex::getNews($arrData['news_id']);
         $json =  SC_Utils_Ex::jsonEncode($arrNewsList);    //JSON形式
 
         return $json;
+
+
     }
 
     /**

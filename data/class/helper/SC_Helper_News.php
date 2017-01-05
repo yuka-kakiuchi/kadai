@@ -40,7 +40,7 @@ class SC_Helper_News
     public static function getNews($news_id, $has_deleted = false)
     {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
-        $col = '*, cast(news_date as date) as cast_news_date';
+        $col = '*';
         $where = 'news_id = ?';
         if (!$has_deleted) {
             $where .= ' AND del_flg = 0';
@@ -61,10 +61,11 @@ class SC_Helper_News
     public function getList($dispNumber = 0, $pageNumber = 0, $has_deleted = false)
     {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
-        $col = '*, cast(news_date as date) as cast_news_date';
-        $where = '';
+        $col = '*, cast(news_date as date) as cast_news_date,cast(end_date as date) as cast_end_date';
+        $today = date("Y-m-d");
+        $where = " news_date<=? and end_date>=? ";
         if (!$has_deleted) {
-            $where .= 'del_flg = 0';
+            $where .= 'and del_flg = 0';
         }
         $table = 'dtb_news';
         $objQuery->setOrder('rank DESC');
@@ -75,8 +76,8 @@ class SC_Helper_News
                 $objQuery->setLimit($dispNumber);
             }
         }
-        $arrRet = $objQuery->select($col, $table, $where);
 
+       $arrRet = $objQuery->select($col, $table, $where,array($today,$today));
         return $arrRet;
     }
 
@@ -88,6 +89,7 @@ class SC_Helper_News
      */
     public function saveNews($sqlval)
     {
+
         $objQuery =& SC_Query_Ex::getSingletonInstance();
 
         $news_id = $sqlval['news_id'];
@@ -107,7 +109,6 @@ class SC_Helper_News
             $where = 'news_id = ?';
             $ret = $objQuery->update('dtb_news', $sqlval, $where, array($news_id));
         }
-
         return ($ret) ? $sqlval['news_id'] : FALSE;
     }
 
