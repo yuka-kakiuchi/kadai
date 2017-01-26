@@ -58,14 +58,17 @@ class SC_Helper_News
      * @param  boolean $has_deleted 削除されたニュースも含む場合 true; 初期値 false
      * @return array
      */
-    public function getList($dispNumber = 0, $pageNumber = 0, $has_deleted = false)
+    public function getList($dispNumber = 0, $pageNumber = 0, $has_deleted = false, $is_admin = false)
     {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $col = '*, cast(news_date as date) as cast_news_date,cast(end_date as date) as cast_end_date';
         $today = date("Y-m-d");
-        $where = " news_date<=? and end_date>=? ";
+        $where = " 1 = 1 ";
         if (!$has_deleted) {
-            $where .= 'and del_flg = 0';
+            $where .=' AND del_flg = 0';
+        }
+        if (!$is_admin) {
+            $where .= ' AND news_date <= ? and end_date >= ?';
         }
         $table = 'dtb_news';
         $objQuery->setOrder('rank DESC');

@@ -78,16 +78,16 @@
             <tr>
                 <th>有効期限<span class="attention"> *</span></th>
                 <td>
-                    <!--{if $arrErr.year || $arrErr.month || $arrErr.day}--><span class="attention"><!--{$arrErr.year}--><!--{$arrErr.month}--><!--{$arrErr.day}--></span><!--{/if}-->
-                    <select name="year1" <!--{if $arrErr.year || $arrErr.month || $arrErr.day }-->style="background-color:<!--{$smarty.const.ERR_COLOR|h}-->"<!--{/if}-->>
+                    <!--{if $arrErr.year1 || $arrErr.month1 || $arrErr.day1}--><span class="attention"><!--{$arrErr.year1}--><!--{$arrErr.month1}--><!--{$arrErr.day1}--></span><!--{/if}-->
+                    <select name="year1" <!--{if $arrErr.year1 || $arrErr.month1 || $arrErr.day1 }-->style="background-color:<!--{$smarty.const.ERR_COLOR|h}-->"<!--{/if}-->>
                     <option value="" selected="selected">----</option>
                     <!--{html_options options=$arrYear selected=$arrForm.year.value}-->
                     </select>年
-                    <select name="month1" <!--{if $arrErr.year || $arrErr.month || $arrErr.day}-->style="background-color:<!--{$smarty.const.ERR_COLOR|h}-->"<!--{/if}-->>
+                    <select name="month1" <!--{if $arrErr.year1 || $arrErr.month1 || $arrErr.day1}-->style="background-color:<!--{$smarty.const.ERR_COLOR|h}-->"<!--{/if}-->>
                     <option value="" selected="selected">--</option>
                     <!--{html_options options=$arrMonth selected=$arrForm.month.value}-->
                     </select>月
-                    <select name="day1" <!--{if $arrErr.year || $arrErr.month || $arrErr.day}-->style="background-color:<!--{$smarty.const.ERR_COLOR|h}-->"<!--{/if}-->>
+                    <select name="day1" <!--{if $arrErr.year1 || $arrErr.month1 || $arrErr.day1}-->style="background-color:<!--{$smarty.const.ERR_COLOR|h}-->"<!--{/if}-->>
                     <option value="" selected="selected">--</option>
                     <!--{html_options options=$arrDay selected=$arrForm.day.value}-->
                     </select>日

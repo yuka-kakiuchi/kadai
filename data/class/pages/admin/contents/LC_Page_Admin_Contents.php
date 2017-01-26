@@ -47,7 +47,6 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
             'year' => date('Y'),
             'month' => date('n'),
             'day' => date('j'),
-
         );
         $this->tpl_maintitle = 'コンテンツ管理';
         $this->tpl_subtitle = '新着情報管理';
@@ -59,6 +58,7 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
         $this->arrDay = $objDate->getDay();
 
     }
+
 
     /**
      * Page のプロセス.
@@ -79,7 +79,6 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
     public function action()
     {
         $objNews = new SC_Helper_News_Ex();
-
         $objFormParam = new SC_FormParam_Ex();
         $this->lfInitParam($objFormParam);
         $objFormParam->setParam($_POST);
@@ -97,10 +96,8 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
 
                     return;
                 }
-
                 if (count($this->arrErr) <= 0) {
                     // POST値の引き継ぎ
-
                     $arrParam = $objFormParam->getHashArray();
                     // 登録実行
                     $res_news_id = $this->doRegist($news_id, $arrParam, $objNews);
@@ -115,21 +112,13 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
                 break;
 
 
-            case 'pre_edit':
-                $news = $objNews->getNews($news_id);
-                list($news['year'],$news['month'],$news['day']) = $this->splitNewsDate($news['cast_news_date']);
-                $objFormParam->setParam($news);
-
                 // POSTデータを引き継ぐ
-                $this->tpl_news_id = $news_id;
-                break;
-
-
-            case 'pre_edit':
+            case 'pre_edit';
                 $news = $objNews->getNews($news_id);
                 list($news['year'],$news['month'],$news['day']) = $this->splitNewsDate($news['cast_news_date']);
-                $objFormParam->setParam($news);
+                list($news['year1'],$news['month1'],$news['day1']) = $this->splitNewsDate($news['cast_end_date']);
 
+                $objFormParam->setParam($news);
                 // POSTデータを引き継ぐ
                 $this->tpl_news_id = $news_id;
                 break;
@@ -170,7 +159,7 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
                 break;
         }
 
-        $this->arrNews = $objNews->getList();
+        $this->arrNews = $objNews->getList($dispNumber = 0, $pageNumber = 0, $has_deleted = false, $is_admin = true);
         $this->line_max = count($this->arrNews);
 
         $this->arrForm = $objFormParam->getFormParamList();
@@ -186,6 +175,8 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
         $objErr = new SC_CheckError_Ex($objFormParam->getHashArray());
         $objErr->arrErr = $objFormParam->checkError();
         $objErr->doFunc(array('日付', 'year', 'month', 'day'), array('CHECK_DATE'));
+        $objErr->doFunc(array('日付', 'year1', 'month1', 'day1'), array('CHECK_DATE'));
+
 
         return $objErr->arrErr;
     }
