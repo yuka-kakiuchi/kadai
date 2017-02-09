@@ -123,6 +123,13 @@
                     <!--{if strlen($arrForm.price02) >= 1}--><!--{$arrForm.price02|h}--> 円<!--{/if}-->
                 </td>
             </tr>
+         <tr>
+            <th><!--{$smarty.const.SPECIAL_PRICE_TITLE}--></th>
+            <td>
+
+                <!--{if strlen($arrForm.price03) >= 1}--><!--{$arrForm.price03|h}--> 円<!--{/if}-->
+            </td>
+         </tr>
             <!--{if $smarty.const.OPTION_PRODUCT_TAX_RULE ==1}-->
             <tr>
                 <th>消費税率</th>

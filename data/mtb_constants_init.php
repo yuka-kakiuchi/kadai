@@ -163,6 +163,8 @@ define('START_BIRTH_YEAR', 1970);
 define('NORMAL_PRICE_TITLE', "通常価格");
 /** 価格名称 */
 define('SALE_PRICE_TITLE', "販売価格");
+/** 価格名称 */
+define('SPECIAL_PRICE_TITLE', "特別価格");
 /** 標準ログファイル */
 define('LOG_REALFILE', DATA_REALDIR . "logs/site.log");
 /** 会員ログイン ログファイル */

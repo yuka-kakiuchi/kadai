@@ -85,6 +85,9 @@
             var price02 = $('#price02_0').val();
             $('input[id^=price02_]').val(price02);
 
+            var price03 = $('#price03_0').val();
+            $('input[id^=price03_]').val(price03);
+
             var tax_rate = $('#tax_rate_0').val();
             $('input[id^=tax_rate_]').val(tax_rate);
 
@@ -203,6 +206,7 @@
                 <th>在庫数<span class="attention">*</span></th>
                 <th><!--{$smarty.const.NORMAL_PRICE_TITLE}-->(円)</th>
                 <th><!--{$smarty.const.SALE_PRICE_TITLE}-->(円)<span class="attention">*</span></th>
+                <th><!--{$smarty.const.SPECIAL_PRICE_TITLE}-->(円)<span class="attention">*</span></th>
                 <!--{if $smarty.const.OPTION_PRODUCT_TAX_RULE}-->
                 <th>消費税率(%)<span class="attention">*</span></th>
                 <!--{/if}-->
