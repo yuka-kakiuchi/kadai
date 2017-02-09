@@ -261,6 +261,8 @@ class SC_DB_DBFactory
                     ,T4.price01_max
                     ,T4.price02_min
                     ,T4.price02_max
+                    ,T4.price03_min
+                    ,T4.price03_max
                     ,T4.stock_min
                     ,T4.stock_max
                     ,T4.stock_unlimited_min
@@ -277,6 +279,8 @@ class SC_DB_DBFactory
                             ,MAX(price01) AS price01_max
                             ,MIN(price02) AS price02_min
                             ,MAX(price02) AS price02_max
+                            ,MIN(price03) AS price03_min
+                            ,MAX(price03) AS price03_max
                             ,MIN(stock) AS stock_min
                             ,MAX(stock) AS stock_max
                             ,MIN(stock_unlimited) AS stock_unlimited_min

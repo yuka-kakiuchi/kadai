@@ -257,6 +257,13 @@ function lfnDispChange(){
                                     <br />～ <!--{$arrProducts[cnt].price02_max|n2s}-->
                                 <!--{/if}-->            </td>
                             <td><!--{$arrProducts[cnt].name|h}--></td>
+                            <!--{* 価格 *}-->
+                            <td rowspan="2" class="right">
+                                <!--{$arrProducts[cnt].price03_min|n2s}-->
+                                <!--{if $arrProducts[cnt].price03_min != $arrProducts[cnt].price03_max}-->
+                                <br />～ <!--{$arrProducts[cnt].price03_max|n2s}-->
+                                <!--{/if}-->            </td>
+                            <td><!--{$arrProducts[cnt].name|h}--></td>
                             <!--{* 在庫 *}-->
                             <!--{* XXX 複数規格でかつ、全ての在庫数量が等しい場合は先頭に「各」と入れたれたら良いと思う。 *}-->
                             <td class="menu" rowspan="2">

@@ -172,15 +172,15 @@
                     </h3>
                     <!--★価格★-->
                     <div class="pricebox sale_price">
-                        <!--{$smarty.const.SALE_PRICE_TITLE}-->(税込)：
+                        <!--{$smarty.const.SPECIAL_PRICE_TITLE}-->(税込)：
                         <span class="price">
                             <span id="price02_default_<!--{$id}-->"><!--{strip}-->
-                                <!--{if $arrProduct.price02_min_inctax == $arrProduct.price02_max_inctax}-->
-                                    <!--{$arrProduct.price02_min_inctax|n2s}-->
+                                <!--{if $arrProduct.price03_min_inctax == $arrProduct.price03_max_inctax}-->
+                                    <!--{$arrProduct.price03_min_inctax|n2s}-->
                                 <!--{else}-->
-                                    <!--{$arrProduct.price02_min_inctax|n2s}-->～<!--{$arrProduct.price02_max_inctax|n2s}-->
+                                    <!--{$arrProduct.price03_min_inctax|n2s}-->～<!--{$arrProduct.price03_max_inctax|n2s}-->
                                 <!--{/if}-->
-                            </span><span id="price02_dynamic_<!--{$id}-->"></span><!--{/strip}-->
+                            </span><span id="price03_dynamic_<!--{$id}-->"></span><!--{/strip}-->
                             円</span>
                     </div>
 

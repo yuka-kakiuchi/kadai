@@ -211,15 +211,15 @@
                 <input type="text" name="price02" value="<!--{$arrForm.price02|h}-->" size="6" class="box6" maxlength="<!--{$smarty.const.PRICE_LEN}-->" style="<!--{if $arrErr.price02 != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->"/>円
                 <span class="attention"> (半角数字で入力)</span>
             </td>
+        </tr>
         <tr>
-            <th><!--{$smarty.const.SPECIAL_PRICE_TITLE}--></th>
+            <th><!--{$smarty.const.SPECIAL_PRICE_TITLE}--><span class="attention"> *</span></th>
             <td>
                 <span class="attention"><!--{$arrErr.price03}--></span>
                 <input type="text" name="price03" value="<!--{$arrForm.price03|h}-->" size="6" class="box6" maxlength="<!--{$smarty.const.PRICE_LEN}-->" style="<!--{if $arrErr.price03 != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->"/>円
                 <span class="attention"> (半角数字で入力)</span>
             </td>
-        </tr>
-        </tr>
+        <tr>
         <!--{if $smarty.const.OPTION_PRODUCT_TAX_RULE ==1}-->
         <tr>
             <th>消費税率<span class="attention"> *</span></th>

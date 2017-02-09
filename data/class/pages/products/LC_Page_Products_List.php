@@ -216,7 +216,7 @@ class LC_Page_Products_List extends LC_Page_Ex
         switch ($this->orderby) {
             // 販売価格が安い順
             case 'price':
-                $objProduct->setProductsOrder('price02', 'dtb_products_class', 'ASC');
+                $objProduct->setProductsOrder('price03', 'dtb_products_class', 'ASC');
                 break;
 
             // 新着順
